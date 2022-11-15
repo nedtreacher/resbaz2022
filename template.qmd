@@ -1,54 +1,50 @@
 ---
-title: "Your awesome project title"
+title: My RezBaz project
 author:
-  name: "You et al"
-  affiliation: "From whence you hail"
+  name: Ned T.
+  affiliation: Victoria University of Wellington
 date: today
 bibliography: refs.bib
 format:
   html:
+    toc: true
     code-fold: false
     link-external-newwindow: true
 theme:
   light: flatly
   dark: darkly
+execute: 
+  echo: false
 ---
-
-:::{.callout-tip}
-# YAML exercise
-- Fill the `title: ` and `name: ` and `affiliation: ` fieds.
-
-  - a couple of handy entries are already completed
-
-  - the existing field: `date: today` will automatically generate today's date (cool huh?  ͡▀̿ ̿ ͜ʖ ͡▀̿ ̿ )
-
-- Add a table of contents following the [guide](https://quarto.org/docs/output-formats/html-basics.html)
-
-- Remove this callout block and render the document
-
-- Give me a :heavy_check_mark: when done or a :hand: if you need help
-:::
 
 # Introduction
 
+## Playing around
+
+
+[Quarto](https://quarto.org)
+
+<!-- ctrl+c+k creates a comment -->
+
+1. **My first reference**: @chamberlin1897
+2. *My second reference*: @perkel2022
+    i) Important information!
+         A.  Please read
+
+<!-- inline equation -->
+$E = mc^2$ 
+
+$$
+SD = \sqrt{\frac{\sum_{i=1}^{n}{(x_i - \bar{x})}^2}{n-1}}
+$$
+
+$$\mathrm{CO_3^{2-} + H^+ \rightleftharpoons HCO_3^{2-}}$$
+
+`7x6=42`
+
 :::{.callout-tip}
-# Markdown exercise
-
-- Check out [Quarto's markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
-
-- and the [biostats guide to writing (equations section)](https://biostats-r.github.io/biostats/quarto/04-figures-tables.html#equations)
-
-In the template Introduction section take 3-4 minutes to write:
-
-- a sub-heading under the introduction
-
-- a list
-
-- and an equation (inline or as a block)
-
-- cite one of the articles in in existing `.bib` file using the `@`
-
-- remove this callout and render the document and hit the :heavy_check_mark: in zoom
+# Comment block
+- This is a comment block
 :::
 
 # Libraries {.unnumbered .unlisted}
@@ -58,22 +54,13 @@ Generally it is good practice to include a list of packages you use up front. Bu
 
 If you want to use Python code check out the documentation [here](https://quarto.org/docs/computations/python.html#overview).
 
-
-:::{.callout-tip}
-# Code block exercise
-
-- Check out the [Block options](https://quarto.org/docs/computations/execution-options.html) and edit (and add to) the existing code block options below to:
-
- - exclude the results, messages and warnings
-
- - exclude the code from the HTML output
-
- - render the document and hit the :heavy_check_mark: in zoom
-:::
+[Block options](https://quarto.org/docs/computations/execution-options.html)
 
 
 ```{r Libraries}
-#| include: true
+#| include: false 
+#| echo: false
+#includes/excludes code and results
 
 if (!require("pacman")) install.packages("pacman", repos="http://cran.r-project.org")
 pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
@@ -81,16 +68,26 @@ pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
 
 # Tabsets
 
-:::{.callout-tip}
-# Tabset exercise
+::: {.panel-tabset}
 
-- Check out the [tabset panel documentation](https://quarto.org/docs/interactive/layout.html#tabset-panel)
+## Plot
 
-- Create a tabset with three tabs in the template under the Tabsets heading
+```{r}
+8*9
+```
 
-  - Does not matter what they contain but feel free to blurb something in there
+## Data
 
-- render the document and hit the :heavy_check_mark: in zoom
+```{python}
+7*6
+```
+
+## Comments
+
+```{ojs}
+8/5
+```
+
 :::
 
 # Images
