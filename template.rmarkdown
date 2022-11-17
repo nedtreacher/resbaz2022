@@ -1,0 +1,137 @@
+---
+title: My RezBaz project
+author:
+  name: Ned T.
+  affiliation: Victoria University of Wellington
+date: today
+bibliography: refs.bib
+format:
+  html:
+    toc: true
+    code-fold: false
+    link-external-newwindow: true
+theme:
+  light: flatly
+  dark: darkly
+execute: 
+  echo: false
+---
+
+
+# Introduction
+
+## Playing around
+
+
+[Quarto](https://quarto.org)
+
+<!-- ctrl+c+k creates a comment -->
+
+1. **My first reference**: @chamberlin1897
+2. *My second reference*: @perkel2022
+    i) Important information!
+         A.  Please read
+
+<!-- inline equation -->
+$E = mc^2$ 
+
+$$
+SD = \sqrt{\frac{\sum_{i=1}^{n}{(x_i - \bar{x})}^2}{n-1}}
+$$
+
+$$\mathrm{CO_3^{2-} + H^+ \rightleftharpoons HCO_3^{2-}}$$
+
+`7x6=42`
+
+:::{.callout-tip}
+# Comment block
+- This is a comment block
+:::
+
+# Libraries {.unnumbered .unlisted}
+
+Generally it is good practice to include a list of packages you use up front. But you may not need to show them in the output or list them in the table of contents. The `{.unnumbered .unlisted}` commands following the heading remove this section from the table of contents but it will remain in the text. Quarto accepts multiple coding languages, the following example uses R. I have set up working R code chunks so that for this tutorial you do not need to be familiar with R. Here, we will experiment with a few code [execution options](https://quarto.org/docs/computations/execution-options.html).
+
+
+If you want to use Python code check out the documentation [here](https://quarto.org/docs/computations/python.html#overview).
+
+[Block options](https://quarto.org/docs/computations/execution-options.html)
+
+
+
+```{r Libraries}
+#| include: false 
+#| echo: false
+#includes/excludes code and results
+
+if (!require("pacman")) install.packages("pacman", repos="http://cran.r-project.org")
+pacman::p_load(ggplot2, palmerpenguins)    # Install & load packages
+```
+
+
+# Tabsets
+
+::: {.panel-tabset}
+
+## Plot
+
+
+```{r}
+8*9
+```
+
+
+## Data
+
+
+```{python}
+7*6
+```
+
+
+## Comments
+
+
+```{ojs}
+8/5
+```
+
+
+:::
+
+# Images
+
+:::{.callout-tip}
+# Images exercise
+
+- There is a (royalty free) XKCD comic inside the images directory in the repo. using the syntax described above, insert the image into one of the tabsets you just created.
+
+- render the document and hit the :heavy_check_mark: in zoom
+:::
+
+
+## let'g go Git it
+
+You're now ready to host your first live link!
+
+:::{.callout-tip}
+# GitHub
+
+- Render your project so that most recent changes are exported
+
+- In the source control on the left commit and push your changes
+ 
+  - You can do this however you prefer, commandline, GUI, source control...
+
+- Head over to GitHub in your browser and go:
+
+  - Settings -> GitHub pages -> enable github pages
+
+- By default, your link will be hosted at: https://githubusername.github.io/reponame/pathtodocument.html
+
+  - The repo can remain private but anyone who has the link can view it.
+
+- Find your hosted template link and share with the world!
+:::
+
+# References
